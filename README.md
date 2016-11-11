@@ -1,8 +1,6 @@
 ##express-jwt-auth-api
++ RESTful API
 + Supports JWT authentication.
-
-###Authentication Sequence
-![alt tag](https://github.com/holmberd/express-jwt-auth-api/blob/master/auth.flow.png)
 
 ###API
 
@@ -23,9 +21,14 @@ GET     /users/me               // Return current user data in JSON.
 ```
 ####Page Render URI's 
 ```
-GET     /{root}                 // Renders home page.
+GET     /root                 // Renders home page.
 GET     /login                  // Renders login page.
+
 ```
+
+####Authentication Sequence
+![alt tag](https://github.com/holmberd/express-jwt-auth-api/blob/master/auth.flow.png)
+
 
 ##License
 
