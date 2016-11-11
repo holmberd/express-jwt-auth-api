@@ -21,7 +21,7 @@ GET     /users/me               // Return current user data in JSON.
 ```
 ####Page Render URI's 
 ```
-GET     /root                 // Renders home page.
+GET     /root                   // Renders home page.
 GET     /login                  // Renders login page.
 
 ```
