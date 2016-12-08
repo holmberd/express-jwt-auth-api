@@ -126,33 +126,35 @@ var users = {
                   'provider': 'facebook', // TEST: { 'twoot': 1 }
                   'profile': profile,
                 });
+
                 user = new User({ 
                   'name': profile.name,
                   'email': email,
                   'memberships.facebook.data': membership,
                   'memberships.facebook.id': profile.id,
                 });
+
                 // pre-validation before saving
                 return user.validate()
                   .then(function resolve() {
-                    return membership.validate()
-                      .then(function resolve() {
-                        // create new user record
-                        return users.create(user)
-                          .then(function resolve(user) {
-                            // create new membership record
-                            return memberships.create(membership)
-                              .then(function resolve() {
-                                // append jwt token to user.
-                                user._token = jwt.sign(
-                                                {id: user._id}, 
-                                                process.env.JWT_SECRET, 
-                                                {expiresIn: '7d'}
-                                              );
-                                return success(user);
-                              });
-                          });
-                      });
+                    return membership.validate();
+                  })
+                  .then(function resolve() {
+                    // create new user record
+                    return users.create(user);
+                  })
+                  .then(function resolve(user) {
+                    // create new membership record
+                    return memberships.create(membership);
+                  })
+                  .then(function resolve() {
+                    // append jwt token to user.
+                    user._token = jwt.sign(
+                      {id: user._id}, 
+                      process.env.JWT_SECRET, 
+                      {expiresIn: '7d'}
+                    );
+                    return success(user);
                   });
               }
               // append jwt token to user.
