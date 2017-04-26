@@ -1,10 +1,10 @@
-##express-jwt-auth-api
+## express-jwt-auth-api
 + RESTful API
 + Supports JWT authentication.
 
-###API
+### API
 
-####Buisness logic API's
+#### Buisness logic API's
 
 ```
 POST    /auth/facebook          // Authenticates user with facebook.
@@ -19,18 +19,18 @@ POST    /auth/token             // Refresh token expiration time field.
 
 GET     /users/me               // Return current user data in JSON.
 ```
-####Page Render URI's 
+#### Page Render URI's 
 ```
 GET     /root                   // Renders home page.
 GET     /login                  // Renders login page.
 
 ```
 
-####Authentication Sequence
+#### Authentication Sequence
 ![alt tag](https://github.com/holmberd/express-jwt-auth-api/blob/master/auth.flow.png)
 
 
-##License
+## License
 
 Free to use and abuse under the MIT license.
 http://www.opensource.org/licenses/mit-license.php
